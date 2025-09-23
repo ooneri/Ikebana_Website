@@ -1,0 +1,59 @@
+:root {
+  --link: #38bdf8;      /* やや柔らかめの水色（Tailwind の sky-400 相当） */
+  --link-hover: #0ea5e9;/* 少し濃いめ（Tailwind の sky-500 相当） */
+}
+
+/* サイト全体のリンク色を統一 */
+a,
+a:link,
+a:visited {
+  color: var(--link);
+  text-decoration: none; /* 下線を消す（好みで外す） */
+}
+
+/* ホバーとフォーカス時 */
+a:hover,
+a:focus {
+  color: var(--link-hover);
+  text-decoration: underline; /* ホバーで下線を出すと視認性が上がる */
+  outline: none;
+}
+
+/* アクセシビリティ：フォーカス時の見え方が欲しいなら */
+a:focus {
+  box-shadow: 0 0 0 4px rgba(14,165,233,0.12); /* 薄い青のリング */
+}
+
+/* ナビゲーション内のリンクは例外処理 */
+nav a {
+  color: inherit !important;/* 親要素のテキストカラーをそのまま使う */
+  text-decoration: none !important; /* ナビゲーションでは下線なし */
+}
+
+nav a:hover {
+  color: #6b7280; /* Tailwind の text-gray-500 相当 */
+}
+
+/* ハンバーガーメニュー内のリンク */
+#menu a {
+  color: inherit !important;       /* 親要素の文字色に従う */
+  text-decoration: none !important; /* 下線なし */
+}
+
+#menu a:hover {
+  color: #6b7280; /* Tailwind の text-gray-500 相当 */
+}
+
+/* visited の色が勝手にブルーになるのを防ぐ */
+#menu a:visited {
+  color: inherit !important;
+}
+
+#logo a {
+  color: inherit !important;       /* 親要素の文字色に従う */
+  text-decoration: none !important; /* 下線なし */
+}
+
+#logo a:hover {
+  color: #6b7280; /* Tailwind の text-gray-500 相当 */
+}

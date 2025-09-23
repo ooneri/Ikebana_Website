@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/logo-1.png">
+    <title>Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+        font-family: 'Cormorant Garamond', serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- ナビゲーション -->
+  <header class="bg-white mt-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        
+        <!-- ロゴ＋名前 -->
+        <div id="logo" class="flex items-center">
+          <a href="works.html" class="flex items-center">
+          <img src="images/logo-1.png" alt="Logo" class="h-10 w-10 mr-2">
+          <span class="font-normal text-xl">Rie Ono</span>
+          </a>
+        </div>
+
+        <!-- PCビュー用メニュー -->
+        <nav class="hidden md:flex space-x-6">
+          <a href="index.html" class="hover:text-gray-600">Home</a>
+          <a href="works.html" class="hover:text-gray-600">Works</a>
+          <a href="https://www.instagram.com/rieono_ikebana/"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="hover:text-gray-600">Instagram</a>
+          <a href="biography.html" class="hover:text-gray-600">Biography</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1Hqll93o8VDbvhod2IibStBGilXJQL1yT8ziNm-Ac9wgpJw/viewform?usp=header" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="hover:text-gray-600">Contact</a>
+        </nav>
+
+        <!-- スマホ用ハンバーガーボタン -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="focus:outline-none">
+            <!-- 線3本のアイコン -->
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウン -->
+    <div id="menu" class="hidden md:hidden bg-white">
+      <a href="index.html" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+      <a href="works.html" class="block px-4 py-2 hover:bg-gray-100">Works</a>
+      <a href="https://www.instagram.com/rieono_ikebana/"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="block px-4 py-2 hover:bg-gray-100">Instagram</a>
+      <a href="biography.html" class="block px-4 py-2 hover:bg-gray-100">Biography</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf1Hqll93o8VDbvhod2IibStBGilXJQL1yT8ziNm-Ac9wgpJw/viewform?usp=header" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+    </div>
+  </header>
+
+  <script>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+
+    btn.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    });
+  </script>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <h1 class="text-2xl text-center font-normal mb-8">Works</h1>
+    <p class="text-center mb-6">Between the future and the past: a dialogue with where I belong</p>
+    <br>
+    <!-- サムネイルを表示するエリア -->
+    <div id="worksGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+      <!-- JSONから自動でサムネイルを生成 -->
+    </div>
+  </main>
+
+  <script>
+    async function loadWorks() {
+      const res = await fetch("works.json");
+      const works = await res.json();
+        // forEachで生成したlinkをappendChildでid=worksGridのdivに子要素として追加するための一時保存用container
+      const container = document.getElementById("worksGrid");
+
+      works.forEach(work => {
+        // サムネイル要素を生成
+        const link = document.createElement("a");
+        link.href = `work.html?id=${work.id}`;
+        link.className = "group block relative overflow-hidden shadow hover:shadow-lg transition";
+
+        link.innerHTML = `
+          <img src="${work.thumbnail}" alt="${work.title}" 
+               class="w-full h-64 object-cover group-hover:opacity-70 transition">
+          <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/50 text-white">
+            <span class="text-bs font-normal">${work.title}</span>
+          </div>
+        `;
+
+      container.appendChild(link);
+      });
+    }
+
+    loadWorks();
+  </script>
+    <!-- フッター -->
+  <footer class="text-center py-6 text-gray-500 mb-8">
+    © 2025 Rie Ono. All rights reserved.
+  </footer>
+</body>
+</html>
