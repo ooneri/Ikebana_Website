@@ -1,4 +1,4 @@
-# Ikebana Website : https://www.rieono.com/
+# Ikebana Website : <a href="URL" target="_blank">https://www.rieono.com/</a>
 
 This is my personal portfolio website showcasing my works in Ikebana (Japanese flower arrangement).  
 The site is built with **HTML**, **CSS (Tailwind)**, and **JSON** for data management.
