@@ -1,4 +1,4 @@
-# Ikebana Website : https://www.rieono.com/(https://www.rieono.com/)
+# Ikebana Website : https://www.rieono.com/
 
 This is my personal portfolio website showcasing my works in Ikebana (Japanese flower arrangement).  
 The site is built with **HTML**, **CSS (Tailwind)**, and **JSON** for data management.
