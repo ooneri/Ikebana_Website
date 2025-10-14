@@ -1,5 +1,7 @@
 # Ikebana Website : 
 <a href="https://www.rieono.com/" target="_blank">https://www.rieono.com/</a>
+# Ikebana Website : 
+<a href="https://www.rieono.com/" target="_blank">https://www.rieono.com/</a>
 
 This is my personal portfolio website showcasing my works in Ikebana (Japanese flower arrangement).  
 The site is built with **HTML**, **CSS (Tailwind)**, and **JSON** for data management.
@@ -15,9 +17,8 @@ The website is hosted on **GitHub Pages**.
 Source code is available in this repository.
 
 ## Learning Log (in Japanese)
-You can find my learning log in Japanese at the link below:  
-<a href="https://www.notion.so/Web-26781fb37eec806fa08cc733ac3413d1" target="_blank">https://www.notion.so/Web-26781fb37eec806fa08cc733ac3413d1</a>
-
+You can find my learning log in Japanese at the link below:
+<a href="https://www.notion.so/Web-26781fb37eec806fa08cc733ac3413d1" target="_blank">https://www.notion.so/Web-26781fb37eec806fa08cc733ac3413d1/</a>
 
 ## Author
 **Rie Ono**  
